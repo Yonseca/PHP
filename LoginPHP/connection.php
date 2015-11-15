@@ -16,7 +16,7 @@ $Password = $_POST['pass'];
 function signIn(){
   session_start();
   if(!empty($_POST['user'])){
-    $query = mysql_query("SELECT * FROM login where user='$_POST[user]' AND pass=$_POST[pass]");
+    $query = mysql_query("SELECT * FROM login where user=".$_POST['user']." AND pass=".$_POST['pass'].");
     $row = mysql_fetch_array($query);
     if(!empty($row['user']) AND !empty($row['pass'])){
 		$_SESSION['user'] = $row['pass'];
